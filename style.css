@@ -1,0 +1,233 @@
+:root {
+    --neon-pink: #ff2a6d;
+    --neon-blue: #05d9e8;
+    --neon-purple: #d300c5;
+    --neon-green: #00ff87;
+    --dark-bg: #0d0221;
+    --darker-bg: #05010f;
+    --glow: 0 0 10px, 0 0 20px, 0 0 30px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background-color: var(--dark-bg);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+            radial-gradient(circle at 20% 30%, var(--neon-pink)),
+            radial-gradient(circle at 80% 70%, var(--neon-blue));
+    opacity: 0.1;
+    z-index: -1;
+}
+
+.game-wrapper {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.game-header {
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Press Start 2P', cursive;
+    color: var(--neon-blue);
+    text-shadow:
+            0 0 5px var(--neon-blue),
+            0 0 10px var(--neon-blue);
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+}
+
+.score-display {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.score-box {
+    background-color: rgba(5, 217, 232, 0.1);
+    border: 2px solid var(--neon-blue);
+    border-radius: 8px;
+    padding: 10px 15px;
+    text-align: center;
+    min-width: 120px;
+    box-shadow: 0 0 10px rgba(5, 217, 232, 0.3);
+}
+
+.score-box span:first-child {
+    display: block;
+    color: var(--neon-blue);
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+}
+
+.score-box span:last-child {
+    font-family: 'Press Start 2P', cursive;
+    color: var(--neon-green);
+    font-size: 1.2rem;
+}
+
+.game-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    border: 3px solid var(--neon-purple);
+    border-radius: 10px;
+    box-shadow:
+            0 0 10px var(--neon-purple),
+            0 0 20px rgba(211, 0, 197, 0.5);
+    overflow: hidden;
+}
+
+#game-canvas {
+    display: block;
+    width: 100%;
+    background-color: var(--darker-bg);
+}
+
+.game-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(13, 2, 33, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    z-index: 10;
+}
+
+.game-overlay h2 {
+    color: var(--neon-pink);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2rem;
+    text-shadow: var(--glow) var(--neon-pink);
+    animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+    from { opacity: 0.7; }
+    to { opacity: 1; }
+}
+
+button {
+    background: none;
+    border: 2px solid var(--neon-green);
+    color: var(--neon-green);
+    padding: 12px 25px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 0 10px rgba(0, 255, 135, 0.3);
+}
+
+button:hover {
+    background-color: var(--neon-green);
+    color: var(--dark-bg);
+    box-shadow: 0 0 15px var(--neon-green), 0 0 30px rgba(0, 255, 135, 0.5);
+}
+
+.game-controls {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.control-btn {
+    width: 150px;
+}
+
+.mobile-controls {
+    display: none; /* Hidden by default, shown on mobile */
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.mobile-controls div {
+    display: flex;
+    gap: 50px;
+}
+
+.mobile-btn {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    padding: 0;
+}
+
+.instructions {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.instructions span {
+    color: var(--neon-pink);
+    font-weight: bold;
+}
+
+/* Responsive design */
+@media (max-width: 500px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .mobile-controls {
+        display: flex;
+    }
+
+    .score-box {
+        min-width: 100px;
+        padding: 8px 10px;
+    }
+
+    .score-box span:first-child {
+        font-size: 0.7rem;
+    }
+
+    .score-box span:last-child {
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neon Snake</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="game-wrapper">
+  <div class="game-header">
+    <h1>NEON SNAKE</h1>
+    <div class="score-display">
+      <div class="score-box">
+        <span>SCORE</span>
+        <span id="score">000</span>
+      </div>
+      <div class="score-box">
+        <span>HIGH SCORE</span>
+        <span id="high-score">000</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="game-container">
+    <canvas id="game-canvas" width="400" height="400"></canvas>
+    <div class="game-overlay" id="game-overlay">
+      <h2>READY?</h2>
+      <button id="start-btn">START GAME</button>
+    </div>
+  </div>
+
+  <div class="game-controls">
+    <button id="reset-btn" class="control-btn">RESET</button>
+    <div class="mobile-controls">
+      <button class="mobile-btn" id="up-btn">↑</button>
+      <div>
+        <button class="mobile-btn" id="left-btn">←</button>
+        <button class="mobile-btn" id="right-btn">→</button>
+      </div>
+      <button class="mobile-btn" id="down-btn">↓</button>
+    </div>
+  </div>
+
+  <div class="instructions">
+    <p>Use <span>ARROW KEYS</span> or <span>WASD</span> to control</p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
